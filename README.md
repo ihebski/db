@@ -1,5 +1,16 @@
+# db
+
+![Build Status](https://pbs.twimg.com/media/EiYn1w3XYAAAlN9?format=jpg&name=large)
 # About db
 Mini utility to store the list of the enumerated subdomains into an sqlite3 db. [one liner Style ]
+Status: **Development**
+## Features
+
+* Remove duplicates
+* Query database
+* Clean results
+* Pipe results to store data
+
 # Prod
 #### Install Requirements
 `sudo pip3 install Flask flask_sqlalchemy loguru uuid`
