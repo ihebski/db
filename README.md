@@ -11,6 +11,14 @@ Status: **Development**
 * Query database
 * Clean results
 * Pipe results to store data
+## Chaining tools
+You can pipe the subdomain tools results into db
+
+> Example :
+
+> subfinder + db
+> ![Build Status](https://pbs.twimg.com/media/EiY1Sa1WsAIPSSp?format=jpg&name=large)
+
 
 # Prod
 #### Install Requirements
