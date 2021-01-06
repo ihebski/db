@@ -13,8 +13,7 @@ Status: **Development**
 * Export the saved records
 
 ## Chaining tools
-You can pipe the subdomain tools results into db
-argparse
+You can pipe the tools results into db 
 > Example :
 
 > subfinder + db
@@ -23,7 +22,7 @@ argparse
 
 # Prod
 #### Install Requirements
-`sudo pip3 install Flask flask_sqlalchemy loguru uuid fire csv argparse`
+`sudo pip3 install Flask flask_sqlalchemy loguru uuid fire csv`
 
 > Add it as a bash command
 ```bash
