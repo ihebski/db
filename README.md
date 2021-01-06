@@ -11,9 +11,11 @@ Status: **Development**
 * Query database
 * Clean results
 * Pipe results to store data
+* Export the saved records
+
 ## Chaining tools
 You can pipe the subdomain tools results into db
-
+argparse
 > Example :
 
 > subfinder + db
@@ -22,7 +24,7 @@ You can pipe the subdomain tools results into db
 
 # Prod
 #### Install Requirements
-`sudo pip3 install Flask flask_sqlalchemy loguru uuid`
+`sudo pip3 install Flask flask_sqlalchemy loguru uuid fire csv argparse`
 
 > Add it as a bash command
 ```bash
@@ -32,14 +34,18 @@ chmod +x /usr/bin/db
 
 # Usage
 
-- Add list of subdomains to database
+| Query                                | Command                    |
+|--------------------------------------|----------------------------|
+| Add list of subdomains               |  <code>cat subdomains.txt &#124; db </code> or <code>echo subdomains.txt &#124; db </code>  |
+| Add  **ONE**  subdmain to database   | `db save tesla.com`        |
+| Search for domain                    | `db search tesla.com`      |
+| Get the new added subdomains         | `db new`                   |
+| Export list of subdomains            | `db export tesla.com`  or if csv  `db export tesla.com csv`    |
+| Remove all the database records      | `db wipe`                  |
+| Remove records for a specific domain | `db removeall tesla.com`   |
+| Remove **ONE** record                | `db remove tesla.com`      |
+|  Get all the saved records             | `db  all`      |
 
-`cat subdomains.txt | db
-`
-or 
-
-`echo example.com | db`
-
-- Search for domain
-
-`db <domain.com>`
+> PS : 
+> - Export function uses TXT format by default (if csv is not specified)
+> - new arguments shows the latest saved records for that day only
