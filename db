@@ -2,6 +2,7 @@
 # @ih3bski
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import select, func
 import uuid
 from loguru import logger
 import sys
@@ -31,7 +32,7 @@ class Target(db.Model):
     __tablename__ = 'Target'
     id = db.Column(db.Text, primary_key=True)
     subdomain = db.Column(db.Text)
-    created_date = db.Column(db.DateTime, default=datetime.now)
+    created_date = db.Column(db.DateTime, default=datetime.today().replace(microsecond=0))
 
     def __init__(self,subdomain,id):
     	self.id = id
@@ -90,12 +91,12 @@ def new():
 	"""
 	Show the new added subdomains, filter by today date.
 	"""
-	sub =  Target.query.filter(cast(Target.created_date, Date) == date.today())
+	sub = db.session.query(Target).filter(func.date(Target.created_date) == date.today()).all()
 	if sub.count :
 		for row in sub:
 			logger.log("INFO",f"{row.subdomain}")
 	else:
-		print("qss")
+		logger.log('WARNING',f'[-] No record added for today')
 
 def all():
 	"""
